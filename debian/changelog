@@ -1,5 +1,66 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-alecaivazis-survey (2.3.7-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 2.3.7
+  * Bump versioned dependencies as per go.mod
+  * Bump Standards-Version to 4.6.2 (no change)
+  * debian/copyright: Remove "Files-Excluded: vendor" as per upstream
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Anthony Fok <foka@debian.org>  Sun, 03 Dec 2023 02:23:07 -0700
+
+golang-github-alecaivazis-survey (2.3.6+ds1-1) unstable; urgency=medium
+
+  * Update to upstream version 2.3.6+ds1
+
+ -- Anthony Fok <foka@debian.org>  Wed, 28 Sep 2022 07:09:28 -0600
+
+golang-github-alecaivazis-survey (2.3.5+ds1-1) unstable; urgency=medium
+
+  * New upstream version 2.3.5+ds1
+
+ -- Anthony Fok <foka@debian.org>  Tue, 14 Jun 2022 03:44:22 -0600
+
+golang-github-alecaivazis-survey (2.3.4+ds1-1) unstable; urgency=medium
+
+  * New upstream version 2.3.4+ds1
+  * Update versioned dependencies as per go.mod
+  * Bump Standards-Version to 4.6.1 (no change)
+
+ -- Anthony Fok <foka@debian.org>  Sun, 05 Jun 2022 08:22:24 -0600
+
+golang-github-alecaivazis-survey (2.3.2+ds1-1) unstable; urgency=medium
+
+  * New upstream version 2.3.2+ds1
+  * Use dh-sequence-golang instead of dh-golang and --with=golang
+  * Reorder fields in debian/control and debian/copyright
+    as would be generated in the next dh-make-golang release after 0.6.0-1
+  * Replace override_dh_fixperms with execute_after_dh_fixperms
+  * Add override_dh_auto_test to Run tests with GOMAXPROCS=1 and retry
+    until success to prevent occasional random test failures or timeouts
+    from causing FTBFS and failed autopkgtest runs (Closes: #997547)
+
+ -- Anthony Fok <foka@debian.org>  Fri, 31 Dec 2021 01:28:04 -0700
+
+golang-github-alecaivazis-survey (2.3.1+ds1-1) unstable; urgency=medium
+
+  * New upstream version 2.3.1+ds1
+  * Bump Standards-Version to 4.6.0 (no change)
+  * Mark library package with "Multi-Arch: foreign"
+  * Add myself to the list of Uploaders
+  * Add vim-tiny to Build-Depends as TestAsk/Test_Ask_for_all_prompts
+    requires "vi" to pass.  TestAsk was re-enabled in 2021-05-12 for v2.2.13;
+    see https://github.com/AlecAivazis/survey/pull/354
+    Note: The test also fails when vi is pointed to /usr/bin/nvim (neovim)
+
+ -- Anthony Fok <foka@debian.org>  Mon, 06 Sep 2021 15:05:45 -0600
+
+golang-github-alecaivazis-survey (2.2.7+ds1-2) unstable; urgency=medium
+
+  * Source-only upload for testing eligibility.
+
+ -- Cyril Brulebois <cyril@debamax.com>  Tue, 12 Jan 2021 23:46:39 +0000
+
+golang-github-alecaivazis-survey (2.2.7+ds1-1) unstable; urgency=medium
+
+  * Initial release (Closes: #979271).
+
+ -- Cyril Brulebois <cyril@debamax.com>  Mon, 04 Jan 2021 19:27:34 +0000
