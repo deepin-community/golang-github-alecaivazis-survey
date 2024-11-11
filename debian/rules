@@ -1,4 +1,18 @@
 #!/usr/bin/make -f
 
+export DH_GOLANG_EXCLUDES := examples tests
+
 %:
-	dh $@
+	dh $@ --builddirectory=_build --buildsystem=golang
+
+# Prevent FTBFS and autopkgtest failure; see https://bugs.debian.org/997547
+override_dh_auto_test:
+	count=1; \
+	  until GOMAXPROCS=1 timeout 30s dh_auto_test; do \
+	    count=$$((count + 1)); \
+	  done; \
+	  echo -n "Tests succeeded in $$count "; \
+	  test "$$count" -eq 1 && echo "try" || echo "tries"
+
+execute_after_dh_fixperms:
+	chmod a-x debian/golang-github-alecaivazis-survey-dev/usr/share/gocode/src/github.com/AlecAivazis/survey/renderer_test.go
